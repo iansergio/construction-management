@@ -1,6 +1,6 @@
 package dao;
 
-import entities.Equipamento;
+import entities.Material;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquipamentoDAO extends BancoDAO{
+public class MaterialDAO extends BancoDAO{
 
-    public void inserir(Equipamento equipamento) {
+    public void inserir(Material material) {
         String sql = """
-                INSERT INTO equipamento(nome_equipamento, tipo)
+                INSERT INTO material(nome_material, quantidade)
                 VALUES(?, ?)
                 """;
         try(Connection con = conexao();
             PreparedStatement stat = con.prepareStatement(sql)){
-            stat.setString(1, equipamento.getNome());
-            stat.setString(2, equipamento.getTipo());
+            stat.setString(1, material.getNome());
+            stat.setInt(2, material.getQuantidade());
             stat.execute();
 
         } catch (SQLException e) {
@@ -26,16 +26,16 @@ public class EquipamentoDAO extends BancoDAO{
         }
     }
 
-    public void atualizar(Equipamento equipamento) {
+    public void atualizar(Material material) {
         String sql = """
-                UPDATE equipamento SET nome_equipamento = ?, tipo = ?
-                WHERE id_equipamento = ?
+                UPDATE material SET nome_material = ?, quantidade = ?
+                WHERE id_material = ?
                 """;
         try(Connection con = conexao();
             PreparedStatement stat = con.prepareStatement(sql)){
-            stat.setString(1, equipamento.getNome());
-            stat.setString(2, equipamento.getTipo());
-            stat.setInt(3, equipamento.getId());
+            stat.setString(1, material.getNome());
+            stat.setInt(2, material.getQuantidade());
+            stat.setInt(3, material.getId());
             stat.execute();
 
         } catch (SQLException e) {
@@ -43,13 +43,13 @@ public class EquipamentoDAO extends BancoDAO{
         }
     }
 
-    public void excluir(Equipamento equipamento) {
+    public void excluir(Material material) {
         String sql = """
-                DELETE FROM equipamento WHERE id_equipamento = ?
+                DELETE FROM material WHERE id_material = ?
                 """;
         try(Connection con = conexao();
             PreparedStatement stat = con.prepareStatement(sql)){
-            stat.setInt(1, equipamento.getId());
+            stat.setInt(1, material.getId());
             stat.execute();
 
         } catch (SQLException e) {
@@ -57,20 +57,20 @@ public class EquipamentoDAO extends BancoDAO{
         }
     }
 
-    public List<Equipamento> listar(){
-        List<Equipamento> lista = new ArrayList<>();
+    public List<Material> listar(){
+        List<Material> lista = new ArrayList<>();
         String sql = """
-                SELECT id_equipamento, nome_equipamento, tipo FROM equipamento
+                SELECT id_material, nome_material, quantidade FROM material
                 """;
         try(Connection con = conexao();
             PreparedStatement stat = con.prepareStatement(sql)){
             ResultSet res = stat.executeQuery();
             while(res.next()){
-                Equipamento equipamento = new Equipamento();
-                equipamento.setId(res.getInt("id_equipamento"));
-                equipamento.setNome(res.getString("nome_equipamento"));
-                equipamento.setTipo(res.getString("tipo"));
-                lista.add(equipamento);
+                Material material = new Material();
+                material.setId(res.getInt("id_material"));
+                material.setNome(res.getString("nome_material"));
+                material.setQuantidade(res.getInt("quantidade"));
+                lista.add(material);
             }
 
         } catch (SQLException e) {

@@ -1,11 +1,5 @@
-import dao.EngenheiroDAO;
-import dao.EquipamentoDAO;
-import dao.OperarioDAO;
-import dao.ProjetoDAO;
-import entities.Engenheiro;
-import entities.Equipamento;
-import entities.Operario;
-import entities.Projeto;
+import dao.*;
+import entities.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +15,9 @@ public class Main {
 
         Equipamento equipamento = new Equipamento();
         EquipamentoDAO daoEquipamento = new EquipamentoDAO();
+
+        Material material = new Material();
+        MaterialDAO daoMaterial = new MaterialDAO();
 
         // Inserir projeto
 //        projeto.setNome("");
@@ -113,6 +110,29 @@ public class Main {
         // Listar equipamento
         for(Equipamento e : daoEquipamento.listar()){
             System.out.println(e);
+        }
+
+        // ==================
+        System.out.println();
+
+        // Inserir material
+        material.setNome("Viga de aço");
+        material.setQuantidade(100);
+        daoMaterial.inserir(material);
+
+        // Atualizar material
+//        material.setNome("");
+//        material.setQuantidade();
+//        material.setId();
+//        daoMaterial.atualizar(material);
+
+        // Excluir material
+//        material.setId();
+//        daoMaterial.excluir(material);
+
+        // Listar material
+        for(Material m : daoMaterial.listar()){
+            System.out.println(m);
         }
     }
 }
