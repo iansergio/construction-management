@@ -47,14 +47,7 @@ public class Projeto {
         return dataTermino;
     }
 
-    @Override
     public String toString() {
-        return "Projeto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", local='" + local + '\'' +
-                ", dataInicio='" + dataInicio + '\'' +
-                ", dataTermino='" + dataTermino + '\'' +
-                '}';
+        return id + ", " + nome + ", " + local + ", " + dataInicio + ", " + dataTermino;
     }
 }

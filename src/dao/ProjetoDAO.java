@@ -12,7 +12,7 @@ public class ProjetoDAO extends BancoDAO{
 
     public void inserir(Projeto projeto){
         String sql = """
-                INSERT INTO projeto(nome, local, data_inicio, data_termino)
+                INSERT INTO projeto(nome_projeto, local, data_inicio, data_termino)
                 VALUES(?, ?, ?, ?)
                 """;
         try(Connection con = conexao();
@@ -30,7 +30,7 @@ public class ProjetoDAO extends BancoDAO{
 
     public void atualizar(Projeto projeto){
         String sql = """
-               UPDATE projeto SET nome = ?, local = ?, data_inicio = ?, data_termino = ?
+               UPDATE projeto SET nome_projeto = ?, local = ?, data_inicio = ?, data_termino = ?
                WHERE id_projeto = ?
                """;
         try(Connection conexao = conexao();
@@ -64,7 +64,7 @@ public class ProjetoDAO extends BancoDAO{
     public List<Projeto> listar(){
         List<Projeto> lista = new ArrayList<>();
         String sql = """
-                SELECT id_projeto, nome, local, data_inicio, data_termino FROM projeto
+                SELECT id_projeto, nome_projeto, local, data_inicio, data_termino FROM projeto
                 """;
         try(Connection con = conexao();
             PreparedStatement stat = con.prepareStatement(sql)){
@@ -72,7 +72,7 @@ public class ProjetoDAO extends BancoDAO{
             while(res.next()){
                 Projeto projeto = new Projeto();
                 projeto.setId(res.getInt("id_projeto"));
-                projeto.setNome(res.getString("nome"));
+                projeto.setNome(res.getString("nome_projeto"));
                 projeto.setLocal(res.getString("local"));
                 projeto.setDataInicio(res.getString("data_inicio"));
                 projeto.setDataTermino(res.getString("data_termino"));

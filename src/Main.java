@@ -1,4 +1,6 @@
+import dao.EngenheiroDAO;
 import dao.ProjetoDAO;
+import entities.Engenheiro;
 import entities.Projeto;
 
 public class Main {
@@ -6,6 +8,9 @@ public class Main {
 
         Projeto projeto = new Projeto();
         ProjetoDAO daoProjeto = new ProjetoDAO();
+
+        Engenheiro engenheiro = new Engenheiro();
+        EngenheiroDAO daoEngenheiro = new EngenheiroDAO();
 
         // Inserir projeto
 //        projeto.setNome("");
@@ -31,6 +36,29 @@ public class Main {
             System.out.println(p);
         }
 
+        System.out.println();
+
+        // Inserir engenheiro
+//        engenheiro.setNome("");
+//        engenheiro.setEspecialidade("");
+//        daoEngenheiro.inserir(engenheiro);
+
+        // Atualizar engenheiro
+//        engenheiro.setNome("");
+//        engenheiro.setEspecialidade("");
+//        engenheiro.setId();
+//        daoEngenheiro.atualizar(engenheiro);
+
+        // Excluir engenheiro
+//        engenheiro.setId();
+//        daoEngenheiro.excluir(engenheiro);
+
+        // Listar engenheiro
+        for(Engenheiro e : daoEngenheiro.listar()){
+            System.out.println(e);
+        }
+
+        System.out.println();
 
     }
 }
