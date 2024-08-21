@@ -1,7 +1,9 @@
 import dao.EngenheiroDAO;
+import dao.EquipamentoDAO;
 import dao.OperarioDAO;
 import dao.ProjetoDAO;
 import entities.Engenheiro;
+import entities.Equipamento;
 import entities.Operario;
 import entities.Projeto;
 
@@ -16,6 +18,9 @@ public class Main {
 
         Operario operario = new Operario();
         OperarioDAO daoOperario = new OperarioDAO();
+
+        Equipamento equipamento = new Equipamento();
+        EquipamentoDAO daoEquipamento = new EquipamentoDAO();
 
         // Inserir projeto
 //        projeto.setNome("");
@@ -67,7 +72,7 @@ public class Main {
         // ==================
         System.out.println();
 
-        // Inserir Operario
+        // Inserir operario
 //        operario.setNome("");
 //        operario.setFuncao("");
 //        daoOperario.inserir(operario);
@@ -90,6 +95,24 @@ public class Main {
         // ==================
         System.out.println();
 
+        // Inserir equipamento
+//        equipamento.setNome("");
+//        equipamento.setTipo("");
+//        daoEquipamento.inserir(equipamento);
+
+        // Atualizar equipamento
+//        equipamento.setNome("");
+//        equipamento.setTipo("");
+//        equipamento.setId();
+//        daoEquipamento.atualizar(equipamento);
+
+        // Excluir equipamento
+//        equipamento.setId();
+//        daoEquipamento.excluir(equipamento);
+
         // Listar equipamento
+        for(Equipamento e : daoEquipamento.listar()){
+            System.out.println(e);
+        }
     }
 }

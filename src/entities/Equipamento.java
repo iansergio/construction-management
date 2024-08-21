@@ -1,9 +1,9 @@
 package entities;
 
-public class Operario {
+public class Equipamento {
     private int id;
     private String nome;
-    private String funcao;
+    private String tipo;
 
     public int getId() {
         return id;
@@ -21,15 +21,15 @@ public class Operario {
         this.nome = nome;
     }
 
-    public String getFuncao() {
-        return funcao;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String toString(){
-        return "[" + id + "] " + nome + ", " + funcao;
+        return "[" + id + "] " + nome + " - " + tipo;
     }
 }
