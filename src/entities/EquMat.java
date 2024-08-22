@@ -1,9 +1,8 @@
 package entities;
 
-public class Operario {
+public class EquMat {
     private int id;
     private String nome;
-    private String funcao;
 
     public int getId() {
         return id;
@@ -21,15 +20,7 @@ public class Operario {
         this.nome = nome;
     }
 
-    public String getFuncao() {
-        return funcao;
-    }
-
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
-    }
-
     public String toString(){
-        return "[" + id + "] " + nome + ", " + funcao;
+        return id + " | " + nome;
     }
 }

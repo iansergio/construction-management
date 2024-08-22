@@ -22,11 +22,19 @@ public class Main {
         EngOpe engOpe = new EngOpe();
         EngOpeDAO daoEngOpe = new EngOpeDAO();
 
+        EquMat equMat = new EquMat();
+        EquMatDAO daoEquMat = new EquMatDAO();
+
         // Listando todos os engenheiros e operários alocados em um determinado projeto
         for(EngOpe eo : daoEngOpe.listar(2)){
             System.out.println(eo);
         }
-        
+        System.out.println("----");
+        // Listando todos os equipamentos e materiais utilizados em um determinado projeto
+        for(EquMat em : daoEquMat.listar(2)){
+            System.out.println(em);
+        }
+
         // ==================
         System.out.println();
 
