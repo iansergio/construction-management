@@ -19,6 +19,17 @@ public class Main {
         Material material = new Material();
         MaterialDAO daoMaterial = new MaterialDAO();
 
+        EngOpe engOpe = new EngOpe();
+        EngOpeDAO daoEngOpe = new EngOpeDAO();
+
+        // Listando todos os engenheiros e operários alocados em um determinado projeto
+        for(EngOpe eo : daoEngOpe.listar(2)){
+            System.out.println(eo);
+        }
+        
+        // ==================
+        System.out.println();
+
         // Inserir projeto
 //        projeto.setNome("");
 //        projeto.setLocal("");
@@ -116,9 +127,9 @@ public class Main {
         System.out.println();
 
         // Inserir material
-        material.setNome("Viga de aço");
-        material.setQuantidade(100);
-        daoMaterial.inserir(material);
+//        material.setNome("");
+//        material.setQuantidade();
+//        daoMaterial.inserir(material);
 
         // Atualizar material
 //        material.setNome("");
